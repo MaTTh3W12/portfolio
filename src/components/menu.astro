@@ -1,0 +1,53 @@
+---
+---
+<header class="header fixed top-0 left-0 w-full">
+    <a class="logo" href="/"><i class='bx bx-ghost'></i> Matt</a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <nav class="navbar">
+        <a class="active hover:text-cyan-400 hover:border-b-2 border-cyan-400 hover:transition-all duration-300" href="#home">Inicio</a>
+        <a class="hover:text-cyan-400 hover:border-b-2 border-cyan-400 hover:transition-all duration-300" href="#about">Acerca de mi</a>
+        <a class="hover:text-cyan-400 hover:border-b-2 border-cyan-400 hover:transition-all duration-300" href="#education">Educacion</a>
+        <a class="hover:text-cyan-400 hover:border-b-2 border-cyan-400 hover:transition-all duration-300" href="#skills">Habilidades</a>
+        <a class="hover:text-cyan-400 hover:border-b-2 border-cyan-300 hover:transition-all duration-300" href="#contact">Contacto</a>
+    </nav>
+</header>
+
+<style>
+    .header {
+        padding: 2rem 9%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        z-index: 100;
+        transition: .3s;
+    }
+
+    .active {
+        color: #22d3ee;
+        border-bottom: 2px solid #22d3ee;
+    }
+
+    .header.sticky {
+        background: #081b29;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        color: #ededed;
+        font-weight: 600;
+    }
+
+    .navbar a {
+        font-size: 1.7rem;
+        font-weight: 500;
+        margin-left: 3.5rem;
+    }
+
+    #menu-icon{
+        font-size: 3.6rem;
+        color: #ededed;
+        cursor: pointer;
+        display: none;
+    }
+</style>

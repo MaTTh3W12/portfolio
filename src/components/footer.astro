@@ -1,0 +1,67 @@
+---
+
+---
+<footer class="footer">
+    <div class="footer-text">
+        <p>Copyright &copy; 2024 por Matthew Gaitan | todos los derechos reservados</p>
+    </div>
+    <div class="footer-iconTop">
+        <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2rem 9%;
+        background: #112e42;
+    }
+
+    .footer-text p {
+        font-size: 1.6rem;
+    }
+
+    .footer-iconTop a {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem;
+        background: #22d3ee;
+        border: .2re solid #22d3ee;
+        border-radius: .6rem;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .footer-iconTop a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #112e42;
+        border: .2rem solid #22d3ee;
+        border-radius: .6rem;
+        z-index: -1;
+        transition: .5s;
+    }
+
+    .footer-iconTop a:hover::before {
+        width: 100%;
+    }
+
+    .footer-iconTop a i { 
+        font-size: 2.4rem;
+        color: #081b29;
+        transition: .5s;
+    }
+
+    .footer-iconTop a:hover i {
+        color: #22d3ee;
+    }
+</style>

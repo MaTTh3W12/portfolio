@@ -1,0 +1,165 @@
+---
+import perfil2 from "../img/about.jpg";
+---
+
+<section class="about" id="about">
+    <h2 class="heading">Acerca de <span>mí</span></h2>
+    <div class="about-img">
+        <img src={perfil2.src} alt="Matthew Gaitán" />
+        <span class="circle-spin"></span>
+    </div>
+    <div class="about-content">
+        <h3>Frontend Developer</h3>
+        <p>
+            Soy Matthew Gaitán, desarrollador frontend especializado en crear
+            interfaces modernas, limpias y centradas en la experiencia del
+            usuario. Me gusta transformar ideas en soluciones digitales claras,
+            funcionales y con buen rendimiento.
+        </p>
+        <p>
+            Trabajo con Angular, TypeScript, HTML, CSS y herramientas modernas
+            como Tailwind, Git y consumo de APIs para entregar productos web
+            confiables y escalables.
+        </p>
+    </div>
+    <div class="home-sci" aria-label="Tecnologías principales">
+        <a href="https://angular.io" target="_blank" rel="noreferrer" aria-label="Angular"><i class="bx bxl-angular"></i></a>
+        <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noreferrer" aria-label="JavaScript"><i class="bx bxl-javascript"></i></a>
+        <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer" aria-label="TypeScript"><i class="bx bxl-typescript"></i></a>
+        <a href="https://git-scm.com/" target="_blank" rel="noreferrer" aria-label="Git"><i class="bx bxl-git"></i></a>
+        <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noreferrer" aria-label="HTML5"><i class="bx bxl-html5"></i></a>
+        <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank" rel="noreferrer" aria-label="CSS3"><i class="bx bxl-css3"></i></a>
+        <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" aria-label="Tailwind CSS"><i class="bx bxl-tailwind-css"></i></a>
+        <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer" aria-label="Bootstrap"><i class="bx bxl-bootstrap"></i></a>
+        <a href="https://www.php.net/" target="_blank" rel="noreferrer" aria-label="PHP"><i class="bx bxl-php"></i></a>
+    </div>
+</section>
+<style>
+    .about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 6rem 9%;
+        background: #112e42;
+    }
+
+    .heading {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .heading span {
+        color: #00abf0;
+    }
+
+    .about-img {
+        position: relative;
+        width: 25rem;
+        height: 25rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-img img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 0.2rem solid #00abf0;
+        text-align: center;
+    }
+
+    .about-img .circle-spin {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border-top: 0.2rem solid #112e42;
+        border-bottom: 0.2rem solid #112e42;
+        border-left: 0.2rem solid #00abf0;
+        border-right: 0.2rem solid #00abf0;
+    }
+
+    .about-content {
+        max-width: 70rem;
+        text-align: center;
+    }
+
+    .about-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .about-content p {
+        font-size: 1.6rem;
+        margin: 2rem 0 3rem;
+        line-height: 1.8;
+    }
+
+    .home-sci {
+        position: relative;
+        width: min(60rem, 100%);
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .home-sci a {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        background: transparent;
+        border: 0.2rem solid #22d3ee;
+        border-radius: 50%;
+        font-size: 30px;
+        color: #22d3ee;
+        z-index: 1;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    .home-sci a:hover {
+        color: #083344;
+    }
+
+    .home-sci a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #22d3ee;
+        z-index: -1;
+        transition: 0.5s;
+    }
+
+    .home-sci a:hover::before {
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .about {
+            padding: 5rem 5%;
+        }
+
+        .heading {
+            font-size: 4rem;
+        }
+
+        .home-sci {
+            justify-content: center;
+        }
+    }
+</style>

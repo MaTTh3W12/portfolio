@@ -1,0 +1,202 @@
+---
+
+---
+
+<!-- seccion de educacion -->
+<section class="education" id="education">
+    <h2 class="heading">Mi <span>Trayectoria</span></h2>
+    <div class="education-row">
+        <div class="education-column">
+            <h3 class="title">Educación</h3>
+            <div class="education-box">
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year">
+                            <i class="bx bxs-calendar"></i>2020 - actualidad
+                        </div>
+                        <h3>Ingenieria - Universidad Don Bosco</h3>
+                        <p>Ingenieria en Ciencias de la Computacion</p>
+                    </div>
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year">
+                            <i class="bx bxs-calendar"></i>2018 - 2020
+                        </div>
+                        <h3>Tecnico - Universidad Don Bosco</h3>
+                        <p>
+                            Tecnico en Ingenieria en Ciencias de la Computacion
+                            (Egresado)
+                        </p>
+                    </div>
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year">
+                            <i class="bx bxs-calendar"></i>2015 - 2017
+                        </div>
+                        <h3>Bachiller Tecnico - Instituto Tecnico Ricaldone</h3>
+                        <p>
+                            Bachillerato tecnico vocacional industrial opcion
+                            sistemas informaticos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="education-column">
+            <h3 class="title">Experiencia</h3>
+            <div class="education-box">
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year">
+                            <i class="bx bxs-calendar"></i>Sep 2023 - Nov 2023
+                        </div>
+                        <h3>Frontend Developer - NovaComp</h3>
+                        <p class="font-bold">Sitio web AVIT - Mercado de Valores</p>
+                        <p>
+                            esarrollo de sitio web informativo en un proyecto de
+                            3 meses en angular version 14 haciendo uso de
+                            tailwind y flowbitew para su estilizacion,
+                            implementando modales y el consumo de una api para
+                            la representacion de graficos con la libreria Apex
+                            chart, manejando las tareas en azure devops.
+                        </p>
+                    </div>
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year">
+                            <i class="bx bxs-calendar"></i>Ene 2022 - Jun 2023
+                        </div>
+                        <h3>Frontend Developer - Novatech</h3>
+                        <p class="font-bold">Emma Store - Unicommer</p>
+                        <p>
+                            Desarrollo de aplicacion para solicitar creditos,
+                            retiros de efectivos, compras de electrodomesticos,
+                            haciendo uso de tecnologia como git, consumo de api,
+                            html, css y angular
+                        </p>
+                    </div>
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year">
+                            <i class="bx bxs-calendar"></i>Dic 2020 - Ene 2022
+                        </div>
+                        <h3>Frontend Developer - Byte El Salvador</h3>
+                        <p class="font-bold">Desarrollo de Banca en línea - Banco Industrial</p>
+                        <p>
+                            Desarrollo de procesos bancarios como, consulta de
+                            saldo, movimientos, creación de servicios, pipes
+                            para consumo de una API, maquetación y estilización
+                            de sitio web apoyándonos de las tecnologías tales
+                            como, CSS, HTML y Angular.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .education {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: auto;
+        padding: 6rem 9%;
+        padding-bottom: 5rem;
+    }
+
+    .heading {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    span {
+        color: #00abf0;
+    }
+
+    .education .education-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5rem;
+    }
+
+    .education-row .education-column {
+        flex: 1 1 40rem;
+    }
+
+    .education-column .title {
+        font-size: 2.5rem;
+        margin: 0 0 1.5rem 2rem;
+    }
+
+    .education-column .education-box {
+        border-left: 0.2rem solid #22d3ee;
+    }
+
+    .education-box .education-content {
+        position: relative;
+        padding-left: 2rem;
+    }
+
+    .education-box .education-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1.1rem;
+        width: 2rem;
+        height: 2rem;
+        background: #22d3ee;
+        border-radius: 50%;
+    }
+
+    .education-content .content {
+        position: relative;
+        padding: 1.5rem;
+        border: 0.2rem solid #22d3ee;
+        border-radius: 0.6rem;
+        margin-bottom: 2rem;
+        overflow: hidden;
+    }
+
+    .education-content .content::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #112e42;
+        z-index: -1;
+        transition: .5s;
+    }
+
+    .education-content .content:hover::before {
+        width: 100%;
+    }
+
+    .education-content .content .year {
+        font-size: 1.5rem;
+        color: #22d3ee;
+        padding-bottom: 0.5rem;
+    }
+
+    .education-content .content .year i {
+        padding-right: 0.5rem;
+    }
+
+    .education-content .content h3 { 
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .education-content .content p {
+        font-size: 1.6rem;
+        padding-top: 0.5rem;
+    }
+</style>
