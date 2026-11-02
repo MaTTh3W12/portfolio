@@ -1,0 +1,27 @@
+---
+type BadgeVariant = 'neutral' | 'primary' | 'outline';
+
+interface Props {
+  variant?: BadgeVariant;
+  label?: string;
+  class?: string;
+}
+
+const { variant = 'neutral', label, class: className = '' } = Astro.props;
+
+const variantClasses: Record<BadgeVariant, string> = {
+  neutral: 'border-border bg-surface text-muted-foreground',
+  primary: 'border-primary/30 bg-primary/10 text-primary',
+  outline: 'border-border bg-transparent text-foreground',
+};
+---
+
+<span
+  class:list={[
+    'inline-flex items-center rounded-full border px-3 py-1 font-mono text-xs font-medium',
+    variantClasses[variant],
+    className,
+  ]}
+>
+  <slot>{label}</slot>
+</span>

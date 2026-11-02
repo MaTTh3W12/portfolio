@@ -1,0 +1,32 @@
+---
+type HeadingAlign = 'left' | 'center';
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  align?: HeadingAlign;
+  id?: string;
+  class?: string;
+}
+
+const {
+  title,
+  eyebrow,
+  description,
+  align = 'left',
+  id,
+  class: className = '',
+} = Astro.props;
+
+const alignmentClasses = {
+  left: 'items-start text-left',
+  center: 'items-center text-center',
+};
+---
+
+<header class:list={['flex max-w-2xl flex-col gap-4', alignmentClasses[align], className]}>
+  {eyebrow && <p class="type-technical text-primary">{eyebrow}</p>}
+  <h2 id={id} class="type-h2 text-foreground">{title}</h2>
+  {description && <p class="type-body-lg text-muted-foreground">{description}</p>}
+</header>

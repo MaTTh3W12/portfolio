@@ -1,0 +1,215 @@
+---
+import Badge from '../components/Badge.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+import Container from '../components/Container.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import SocialLink from '../components/SocialLink.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const isDevelopment = import.meta.env.DEV;
+
+const colors = [
+  { name: 'Background', variable: '--color-background', value: '#080F1C' },
+  { name: 'Surface', variable: '--color-surface', value: '#111E30' },
+  { name: 'Elevated', variable: '--color-elevated', value: '#1D3045' },
+  { name: 'Primary', variable: '--color-primary', value: '#22D3EE' },
+  { name: 'Foreground', variable: '--color-foreground', value: '#F8FAFC' },
+  { name: 'Muted foreground', variable: '--color-muted-foreground', value: '#94A3B8' },
+  { name: 'Border', variable: '--color-border', value: '#26384D' },
+  { name: 'Success', variable: '--color-success', value: '#34D399' },
+  { name: 'Warning', variable: '--color-warning', value: '#FBBF24' },
+  { name: 'Error', variable: '--color-error', value: '#FB7185' },
+];
+
+const spacing = [
+  { label: '8px', className: 'w-8' },
+  { label: '12px', className: 'w-12' },
+  { label: '16px', className: 'w-16' },
+];
+---
+
+{isDevelopment ? (
+  <BaseLayout title="Design System · Dark Professional">
+    <main class="min-h-screen bg-background font-sans text-foreground">
+      <Container>
+        <header class="ds-section max-w-3xl">
+          <div class="mb-6 flex flex-wrap gap-2">
+            <Badge variant="primary">Development only</Badge>
+            <Badge variant="outline">Tailwind CSS 4</Badge>
+          </div>
+          <p class="type-technical mb-5 text-primary">Interface foundations</p>
+          <h1 class="type-display">Dark Professional</h1>
+          <p class="type-body-lg mt-6 max-w-2xl text-muted-foreground">
+            Un sistema visual oscuro, sobrio y técnico para presentar experiencia,
+            criterio de ingeniería y trabajo de producto.
+          </p>
+        </header>
+
+        <section class="ds-section border-t border-separator" aria-labelledby="colors-title">
+          <SectionHeading
+            id="colors-title"
+            eyebrow="Foundations"
+            title="Color tokens"
+            description="Roles semánticos para mantener contraste, jerarquía y consistencia entre componentes."
+          />
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {colors.map((color) => (
+              <Card class="p-4">
+                <div
+                  class="mb-4 h-20 rounded-control border border-border"
+                  style={`background-color: var(${color.variable})`}
+                ></div>
+                <div class="flex items-end justify-between gap-4">
+                  <div>
+                    <h3 class="type-h4 text-foreground">{color.name}</h3>
+                    <p class="type-caption mt-1 font-mono text-muted-foreground">
+                      {color.variable}
+                    </p>
+                  </div>
+                  <code class="type-caption text-muted-foreground">{color.value}</code>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section class="ds-section border-t border-separator" aria-labelledby="type-title">
+          <SectionHeading
+            id="type-title"
+            eyebrow="Foundations"
+            title="Typography"
+            description="Space Grotesk para titulares, Inter para interfaz y JetBrains Mono para señales técnicas."
+          />
+          <div class="mt-10 space-y-8">
+            <div>
+              <p class="type-display">Display</p>
+              <p class="type-caption mt-2 font-mono text-muted-foreground">type-display</p>
+            </div>
+            <div>
+              <p class="type-h1">Heading one</p>
+              <p class="type-caption mt-2 font-mono text-muted-foreground">type-h1</p>
+            </div>
+            <div>
+              <p class="type-h2">Heading two</p>
+              <p class="type-caption mt-2 font-mono text-muted-foreground">type-h2</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+              <div>
+                <p class="type-body-lg">Body large</p>
+                <p class="type-caption mt-2 font-mono text-muted-foreground">type-body-lg</p>
+              </div>
+              <div>
+                <p class="type-body">Body regular</p>
+                <p class="type-caption mt-2 font-mono text-muted-foreground">type-body</p>
+              </div>
+              <div>
+                <p class="type-technical">Technical label</p>
+                <p class="type-caption mt-2 font-mono text-muted-foreground">type-technical</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ds-section border-t border-separator" aria-labelledby="components-title">
+          <SectionHeading
+            id="components-title"
+            eyebrow="Components"
+            title="Reusable interface pieces"
+            description="Componentes Astro tipados, accesibles y preparados para convivir con las secciones actuales."
+          />
+
+          <div class="mt-10 space-y-10">
+            <div>
+              <h3 class="type-h3">Buttons</h3>
+              <div class="mt-5 flex flex-wrap items-center gap-3">
+                <Button variant="primary" size="sm">Primary small</Button>
+                <Button variant="primary" size="md">Primary medium</Button>
+                <Button variant="secondary" size="lg">Secondary large</Button>
+                <Button variant="ghost">Ghost</Button>
+                <Button disabled>Disabled</Button>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="type-h3">Badges</h3>
+              <div class="mt-5 flex flex-wrap gap-3">
+                <Badge variant="neutral">Neutral</Badge>
+                <Badge variant="primary">Primary</Badge>
+                <Badge variant="outline">Outline</Badge>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="type-h3">Cards</h3>
+              <div class="mt-5 grid gap-5 md:grid-cols-2">
+                <Card interactive class="p-6">
+                  <p class="type-technical text-primary">Surface</p>
+                  <h4 class="type-h3 mt-4">Product thinking</h4>
+                  <p class="type-body mt-3 text-muted-foreground">
+                    Una superficie contenida para información principal y acciones claras.
+                  </p>
+                </Card>
+                <Card variant="elevated" interactive class="p-6">
+                  <p class="type-technical text-primary">Elevated</p>
+                  <h4 class="type-h3 mt-4">Engineering craft</h4>
+                  <p class="type-body mt-3 text-muted-foreground">
+                    Una capa superior para destacar contenido o decisiones importantes.
+                  </p>
+                </Card>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="type-h3">Social links</h3>
+              <div class="mt-5 flex gap-3">
+                <SocialLink href="https://github.com" label="GitHub" icon="GH" target="_blank" />
+                <SocialLink
+                  href="https://www.linkedin.com"
+                  label="LinkedIn"
+                  icon="in"
+                  target="_blank"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ds-section border-t border-separator" aria-labelledby="spacing-title">
+          <SectionHeading
+            id="spacing-title"
+            eyebrow="Foundations"
+            title="Spacing and radii"
+            description="Escalas pequeñas y predecibles para controles, tarjetas y paneles."
+          />
+          <div class="mt-10 grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 class="type-h3">Spacing samples</h3>
+              <div class="mt-6 flex items-end gap-5">
+                {spacing.map((item) => (
+                  <div class="text-center">
+                    <div class:list={['h-3 bg-primary', item.className]}></div>
+                    <p class="type-caption mt-2 font-mono text-muted-foreground">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 class="type-h3">Radius samples</h3>
+              <div class="mt-6 flex gap-4">
+                <div class="size-16 rounded-control border border-primary bg-primary/10"></div>
+                <div class="size-16 rounded-card border border-primary bg-primary/10"></div>
+                <div class="size-16 rounded-panel border border-primary bg-primary/10"></div>
+              </div>
+              <p class="type-caption mt-3 font-mono text-muted-foreground">8 / 12 / 16px</p>
+            </div>
+          </div>
+        </section>
+      </Container>
+    </main>
+  </BaseLayout>
+) : (
+  <BaseLayout title="Not found">
+    <main class="min-h-screen bg-background"></main>
+  </BaseLayout>
+)}

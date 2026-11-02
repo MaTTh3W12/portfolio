@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  icon?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+}
+
+const { href, label, icon, target, rel, class: className = '' } = Astro.props;
+const safeRel = target === '_blank' ? rel ?? 'noreferrer' : rel;
+---
+
+<a
+  href={href}
+  class:list={[
+    'group inline-flex size-11 items-center justify-center rounded-full border border-border bg-surface text-muted-foreground transition-colors duration-200',
+    'hover:border-primary hover:bg-surface-hover hover:text-primary',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring',
+    className,
+  ]}
+  aria-label={label}
+  target={target}
+  rel={safeRel}
+>
+  <span aria-hidden="true" class="font-mono text-xs font-semibold">
+    <slot name="icon">{icon}</slot>
+  </span>
+  <span class="sr-only">{label}</span>
+</a>
