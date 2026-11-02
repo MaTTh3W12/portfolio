@@ -1,0 +1,73 @@
+---
+type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonSize = 'sm' | 'md' | 'lg';
+
+interface Props {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+  ariaLabel?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  disabled = false,
+  class: className = '',
+  ariaLabel,
+  target,
+  rel,
+} = Astro.props;
+
+const variantClasses: Record<ButtonVariant, string> = {
+  primary:
+    'bg-primary text-background hover:bg-primary-hover active:bg-primary-active',
+  secondary:
+    'border border-border bg-surface text-foreground hover:border-primary/60 hover:bg-surface-hover',
+  ghost: 'text-muted-foreground hover:bg-surface-hover hover:text-foreground',
+};
+
+const sizeClasses: Record<ButtonSize, string> = {
+  sm: 'min-h-9 px-3 text-sm',
+  md: 'min-h-11 px-5 text-sm',
+  lg: 'min-h-12 px-6 text-base',
+};
+
+const classes = [
+  'inline-flex items-center justify-center gap-2 rounded-control font-sans font-semibold transition-colors duration-200',
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring',
+  variantClasses[variant],
+  sizeClasses[size],
+  disabled ? 'pointer-events-none opacity-50' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+
+const safeRel = target === '_blank' ? rel ?? 'noreferrer' : rel;
+---
+
+{href ? (
+  <a
+    href={href}
+    class={classes}
+    aria-label={ariaLabel}
+    aria-disabled={disabled ? 'true' : undefined}
+    tabindex={disabled ? -1 : undefined}
+    target={target}
+    rel={safeRel}
+  >
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes} aria-label={ariaLabel} disabled={disabled}>
+    <slot />
+  </button>
+)}

@@ -1,0 +1,29 @@
+---
+type CardVariant = 'surface' | 'elevated';
+
+interface Props {
+  variant?: CardVariant;
+  interactive?: boolean;
+  class?: string;
+}
+
+const { variant = 'surface', interactive = false, class: className = '' } = Astro.props;
+
+const variantClasses: Record<CardVariant, string> = {
+  surface: 'bg-surface shadow-card',
+  elevated: 'bg-elevated shadow-elevated',
+};
+---
+
+<article
+  class:list={[
+    'rounded-card border border-border',
+    variantClasses[variant],
+    interactive
+      ? 'transition-colors duration-200 hover:border-primary/40 hover:bg-surface-hover'
+      : '',
+    className,
+  ]}
+>
+  <slot />
+</article>

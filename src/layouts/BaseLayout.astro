@@ -1,0 +1,29 @@
+---
+interface Props {
+  lang?: string;
+  title?: string;
+}
+
+const { lang = 'en', title = 'Astro' } = Astro.props;
+
+import '../styles/global.css';
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="text-cyan-50">
+    <slot />
+  </body>
+</html>
